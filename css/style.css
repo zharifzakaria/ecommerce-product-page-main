@@ -124,17 +124,10 @@ nav .user__cart.active .cart-table {
   position: absolute;
   top: 50px;
   right: -50px;
-  width: 360px;
+  width: 358px;
   border-radius: 8px;
   -ms-box-shadow: -3px 19px 20px -1px rgba(0, 0, 0, 0.2);
   box-shadow: -3px 19px 20px -1px rgba(0, 0, 0, 0.2);
-}
-
-@media only screen and (max-width: 912px) {
-  nav .user__cart.active .cart-table {
-    right: 0;
-    width: 350px;
-  }
 }
 
 nav .user__cart.active .cart-table .header {
@@ -211,6 +204,7 @@ nav .user__cart.active .cart-table .checkout-btn button {
   margin: 0 auto;
   font-size: .9em;
   font-weight: 700;
+  cursor: pointer;
 }
 
 nav .user__profile {
