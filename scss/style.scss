@@ -1,0 +1,416 @@
+// # Front-end Style Guide
+
+// ## Layout
+
+// The designs were created to the following widths:
+
+// - Mobile: 375px
+// - Desktop: 1440px
+
+// ## Colors
+
+// ### Primary
+
+// - Orange: hsl(26, 100%, 55%)
+// - Pale orange: hsl(25, 100%, 94%)
+
+// ### Neutral
+
+// - Very vark blue: hsl(220, 13%, 13%)
+// - Dark grayish blue: hsl(219, 9%, 45%)
+// - Grayish blue: hsl(220, 14%, 75%)
+// - Light grayish blue: hsl(223, 64%, 98%)
+// - White: hsl(0, 0%, 100%)
+// - Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%)
+
+// ## Typography
+
+// ### Body Copy
+
+// - Font size (paragraph): 16px
+
+// ### Font
+
+// - Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
+// - Weights: 400, 700
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@500;700&display=swap");
+
+body {
+  font-size: 16px;
+  font-family: "Kumbh Sans", sans-serif;
+
+  @media only screen and (max-width: 375px) {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 25px;
+  padding-top: 20px;
+  border-bottom: 1px solid hsl(220, 14%, 75%);
+  width: 100%;
+
+  .mobilenav {
+    display: none;
+    transition: all 0.2s ease-out;
+    @media only screen and (max-width: 375px) {
+      display: inline;
+      padding-right: 12px;
+      cursor: pointer;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    margin: 0 auto;
+    border-bottom: none;
+    width: 90%;
+  }
+
+  .logo {
+    flex-grow: 1;
+  }
+
+  .menu {
+    flex-grow: 1;
+    .list {
+      display: flex;
+      list-style-type: none;
+      &__item {
+        color: hsl(219, 9%, 45%);
+        padding: 0 12px;
+      }
+    }
+
+    @media only screen and (max-width: 375px) {
+      display: none;
+    }
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 20;
+
+    &__profile {
+      padding-left: 16px;
+      img {
+        width: 35px;
+        height: 35px;
+
+        @media only screen and (max-width: 375px) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 96px;
+  padding: 0 56px;
+  width: 100%;
+
+  @media only screen and (max-width: 375px) {
+    flex-flow: column nowrap;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gallery {
+    margin-left: 96px;
+
+    @media only screen and (max-width: 375px) {
+      margin: 0;
+    }
+
+    &__main {
+      position: relative;
+      border-radius: 16px;
+      max-width: 550px;
+      max-height: 550px;
+      overflow: hidden;
+
+      @media only screen and (max-width: 375px) {
+        border-radius: 0;
+        max-width: 100%;
+        height: 330px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .gallery-nav {
+        display: none;
+
+        @media only screen and (max-width: 375px) {
+          display: flex;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%) translateX(5%);
+          justify-content: space-between;
+          z-index: 9999;
+          width: 90%;
+
+          img {
+            width: 14px;
+            height: 14px;
+            background-color: hsl(223, 64%, 98%);
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    &__thumb {
+      max-width: 550px;
+      @media only screen and (max-width: 375px) {
+        display: none;
+      }
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        padding: 0;
+
+        li {
+          border: 3px solid hsl(0, 0%, 100%);
+          border-radius: 16px;
+          overflow: hidden;
+          margin-right: 16px;
+          cursor: pointer;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .active {
+          border: 3px solid hsl(26, 100%, 55%);
+          cursor: initial;
+          img {
+            filter: contrast(0.3) brightness(1.6);
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    flex-grow: 1.5;
+    max-width: 450px;
+    margin-left: 96px;
+    margin-top: 48px;
+
+    @media only screen and (max-width: 375px) {
+      margin: 24px auto;
+      width: 90%;
+    }
+
+    .tag {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: hsl(26, 100%, 55%);
+      letter-spacing: 2px;
+      @media only screen and (max-width: 375px) {
+        font-size: 0.75em;
+      }
+    }
+
+    .title {
+      font-size: 2.75em;
+      max-width: 400px;
+      color: hsl(220, 13%, 13%);
+
+      @media only screen and (max-width: 375px) {
+        font-size: 1.95em;
+        margin-top: 10px;
+      }
+    }
+
+    .paragraph {
+      max-width: 460px;
+      color: hsl(219, 9%, 45%);
+      line-height: 1.75em;
+    }
+
+    .price {
+      display: block;
+      @media only screen and (max-width: 375px) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+      }
+
+      &__tag {
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 2em;
+        color: hsl(220, 13%, 13%);
+        & > .price__discount {
+          font-size: 0.5em;
+          font-weight: 700;
+          padding: 4px 8px;
+          border-radius: 3px;
+          background-color: hsl(25, 100%, 94%);
+          color: hsl(26, 100%, 55%);
+          margin: 4px;
+          margin-left: 20px;
+        }
+      }
+      &__before {
+        padding: 15px 0;
+        font-size: 1.15em;
+        font-weight: 500;
+        color: hsl(220, 14%, 75%);
+        text-decoration: line-through;
+      }
+    }
+
+    .cart {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      width: 100%;
+
+      @media only screen and (max-width: 375px) {
+        flex-flow: column nowrap;
+      }
+
+      &__amount {
+        display: flex;
+        align-items: stretch;
+        @media only screen and (max-width: 375px) {
+          width: 100%;
+        }
+
+        &:after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+
+        & button:not(:last-child) {
+          border-right: none; /* Prevent double borders */
+        }
+
+        button {
+          font-size: 1.5em;
+          font-weight: 500;
+          background-color: hsl(223, 64%, 98%);
+          border: hsl(223, 64%, 98%);
+          color: hsl(26, 100%, 55%);
+          padding: 14px 22px;
+          cursor: pointer;
+          float: left; /* Float the buttons side by side */
+          transition: all 0.3s ease-out;
+
+          &:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+          }
+          &:nth-child(2) {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: hsl(220, 13%, 13%);
+            cursor: initial;
+
+            &:hover {
+              background-color: hsl(223, 64%, 98%);
+            }
+
+            @media only screen and (max-width: 375px) {
+              flex-grow: 2;
+            }
+          }
+
+          &:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+          }
+
+          &:hover {
+            background-color: hsl(220, 14%, 90%);
+          }
+        }
+      }
+
+      &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        background-color: hsl(26, 100%, 55%);
+        color: hsl(0, 0%, 100%);
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 700;
+        cursor: pointer;
+
+        @media only screen and (max-width: 375px) {
+          width: 100%;
+          min-height: 60px;
+          margin-top: 12px;
+        }
+
+        &:hover {
+          background-color: hsl(26, 100%, 45%);
+        }
+        transition: all 0.2s ease-out;
+
+        img {
+          padding-right: 12px;
+          filter: contrast(100) invert(1);
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  text-align: center;
+
+  @media only screen and (max-width: 375px) {
+    position: relative;
+    margin-top: 48px;
+    text-align: left;
+    padding-left: 20px;
+  }
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
