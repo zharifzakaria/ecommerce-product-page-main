@@ -153,6 +153,12 @@ nav {
           -ms-box-shadow: -3px 19px 20px -1px rgba(0, 0, 0, 0.2);
           box-shadow: -3px 19px 20px -1px rgba(0, 0, 0, 0.2);
 
+          @media only screen and (max-width: 912px) {
+            right: 0;
+            width: 350px;
+          }
+        
+
           .header {
             padding: 6px 20px;
             border-bottom: 1px solid hsl(220, 21%, 89%);
