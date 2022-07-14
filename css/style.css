@@ -4,16 +4,24 @@ body {
   font-family: "Kumbh Sans", sans-serif;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   body {
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
   }
 }
 
 body .container {
   max-width: 1440px;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 912px) {
+  body .container {
+    max-width: 375px;
+  }
 }
 
 nav {
@@ -32,7 +40,7 @@ nav .mobilenav {
   transition: all 0.2s ease-out;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   nav .mobilenav {
     display: inline;
     padding-right: 12px;
@@ -40,7 +48,7 @@ nav .mobilenav {
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   nav {
     margin: 0 auto;
     border-bottom: none;
@@ -66,7 +74,7 @@ nav .menu .list__item {
   padding: 0 12px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   nav .menu {
     display: none;
   }
@@ -88,7 +96,7 @@ nav .user__profile img {
   height: 35px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   nav .user__profile img {
     width: 24px;
     height: 24px;
@@ -105,7 +113,7 @@ main {
   width: 100%;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main {
     flex-flow: column nowrap;
     padding: 0;
@@ -117,7 +125,7 @@ main .gallery {
   margin-left: 96px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .gallery {
     margin: 0;
   }
@@ -131,7 +139,7 @@ main .gallery__main {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .gallery__main {
     border-radius: 0;
     max-width: 100%;
@@ -148,7 +156,7 @@ main .gallery__main .gallery-nav {
   display: none;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .gallery__main .gallery-nav {
     display: flex;
     position: absolute;
@@ -172,7 +180,7 @@ main .gallery__thumb {
   max-width: 550px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .gallery__thumb {
     display: none;
   }
@@ -219,7 +227,7 @@ main .description {
   margin-top: 48px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description {
     margin: 24px auto;
     width: 90%;
@@ -233,7 +241,7 @@ main .description .tag {
   letter-spacing: 2px;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .tag {
     font-size: 0.75em;
   }
@@ -245,7 +253,7 @@ main .description .title {
   color: #1d2025;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .title {
     font-size: 1.95em;
     margin-top: 10px;
@@ -262,7 +270,7 @@ main .description .price {
   display: block;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .price {
     display: flex;
     flex-flow: row nowrap;
@@ -304,7 +312,7 @@ main .description .cart {
   width: 100%;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .cart {
     flex-flow: column nowrap;
   }
@@ -315,7 +323,7 @@ main .description .cart__amount {
   align-items: stretch;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .cart__amount {
     width: 100%;
   }
@@ -361,7 +369,7 @@ main .description .cart__amount button:nth-child(2):hover {
   background-color: #f7f8fd;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .cart__amount button:nth-child(2) {
     flex-grow: 2;
   }
@@ -391,7 +399,7 @@ main .description .cart__btn {
   transition: all 0.2s ease-out;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   main .description .cart__btn {
     width: 100%;
     min-height: 60px;
@@ -410,18 +418,18 @@ main .description .cart__btn img {
 }
 
 .attribution {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin-top: 48px;
+  margin-bottom: 12px;
   font-size: 11px;
   text-align: center;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 912px) {
   .attribution {
     position: relative;
     margin-top: 48px;
+    margin-bottom: 12px;
     text-align: left;
     padding-left: 20px;
   }
