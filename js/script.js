@@ -51,14 +51,14 @@ const nextBtn = document.getElementById('nextBtn');
 prevBtn.addEventListener('touchstart', () => {
   let current = image.dataset.slide;
   current--;
-  if (current < 0) return;
+  if (current < 0) current = 3;
   image.src = thumbs[current].querySelector('img').src.replace("-thumbnail","");
   image.dataset.slide = current;
 });
 nextBtn.addEventListener('touchstart', () => {
   let current = image.dataset.slide;
     current++; 
-    if (current >= 4) return;
+    if (current >= 4) current = 0;
     image.src = thumbs[current].querySelector('img').src.replace("-thumbnail","");
     image.dataset.slide = current;
 });
@@ -165,5 +165,9 @@ var formatter = new Intl.NumberFormat('en-US', {
 
 function handleCheckOut() {
   const checkoutBtn = document.getElementById('checkoutBtn').querySelector('button');
-  checkoutBtn.innerHTML = "Paid! Thank Youzzz";
+  checkoutBtn.innerHTML = "Paid! Thank Youzzz!!! 🚀";
+
+  setTimeout(() => {
+    emptyCart();
+  }, 2000);
 }
