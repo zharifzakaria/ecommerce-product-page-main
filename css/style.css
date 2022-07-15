@@ -105,18 +105,13 @@ nav .user__cart img {
 }
 
 nav .user__cart .cart-amount {
-  display: none;
-}
-
-nav .user__cart .cart-amount {
-  display: inherit;
   font-weight: 700;
   position: absolute;
   top: -6px;
   right: -10px;
   font-size: 0.6em;
   color: white;
-  background-color: #ff7d1a;
+  background-color: #b6bcc8;
   padding: 1px 8px;
   border-radius: 8px;
   z-index: 2;
@@ -178,6 +173,13 @@ nav .user__cart .cart-table .row {
   align-items: center;
 }
 
+nav .user__cart .cart-table .row .empty-cart {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 nav .user__cart .cart-table .row .thumb {
   width: 60px;
   height: 58px;
@@ -202,6 +204,12 @@ nav .user__cart .cart-table .row .product {
 
 nav .user__cart .cart-table .row .product__price {
   padding-top: 8px;
+  text-align: left;
+}
+
+nav .user__cart .cart-table .row .product__price strong {
+  padding-left: 8px;
+  font-weight: 700;
 }
 
 nav .user__cart .cart-table .row .product__price .product-total {
@@ -237,6 +245,7 @@ nav .user__cart .cart-table .checkout-btn button {
   font-size: 0.9em;
   font-weight: 700;
   cursor: pointer;
+  transition: all .3s ease-out;
 }
 
 nav .user__profile {

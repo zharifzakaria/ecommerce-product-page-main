@@ -29,7 +29,7 @@
         </div>
         <div class="user">
           <div class="user__cart">
-            <span class="cart-amount">1</span>
+            <span id="cartAmount" class="cart-amount">0</span>
             <img id="cart" src="./images/icon-cart.svg" alt="icon-cart" />
 
             <div id="blocker"></div>
@@ -38,14 +38,9 @@
                 <h3>Cart</h3>
               </div>
               <div class="row">
-                <div class="thumb"><img src="./images/image-product-1.jpg" alt=""></div>
-               <div class="product">
-                  <div class="product__name">Fall Limited Edition Sneakers</div>
-                  <div class="product__price">$125 x 3 <span class="product-total">$375.00</span></div>
-               </div>
-                <button class="delete-btn"><img src="./images/icon-delete.svg" alt=""></button>
+                <p class="empty-cart">Your cart is empty.</p>
               </div>
-              <div class="checkout-btn">
+              <div id="checkoutBtn" class="checkout-btn" onclick="handleCheckOut()">
                 <button>Checkout</button>
               </div>
             </div>
@@ -112,7 +107,7 @@
               <button id="plus"><img src="./images/icon-plus.svg" alt="plus" /></button>
             </div>
 
-            <button class="cart__btn">
+            <button onclick="handleAddCart()" class="cart__btn">
               <img src="./images/icon-cart.svg" alt="icon-cart" />Add to cart
             </button>
           </div>
