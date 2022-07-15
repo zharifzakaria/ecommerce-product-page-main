@@ -531,15 +531,25 @@ main .description .cart__amount button:first-child {
   border-bottom-left-radius: 8px;
 }
 
+main .description .cart__amount button:first-child img {
+  transform: translateY(-5px);
+}
+
 main .description .cart__amount button:nth-child(2) {
   font-size: 1.15em;
   font-weight: 700;
   color: #1d2025;
+  width: 28px;
   cursor: initial;
 }
 
 main .description .cart__amount button:nth-child(2):hover {
   background-color: #f7f8fd;
+}
+
+main .description .cart__amount button:nth-child(2) p {
+  margin: 0;
+  transform: translateX(-4px);
 }
 
 @media only screen and (max-width: 912px) {

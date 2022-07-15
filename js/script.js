@@ -48,7 +48,6 @@ thumbs.forEach( (thumb, index) => {
 //mobile gallery slideshow
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-
 prevBtn.addEventListener('touchstart', () => {
   let current = image.dataset.slide;
   current--;
@@ -63,3 +62,22 @@ nextBtn.addEventListener('touchstart', () => {
     image.src = thumbs[current].querySelector('img').src.replace("-thumbnail","");
     image.dataset.slide = current;
 });
+
+// product counter
+const minus = document.getElementById('minus');
+const plus = document.getElementById('plus');
+const counterDisplay = document.getElementById('counterDisplay');
+
+let currentCounter = 0;
+
+minus.addEventListener('click', () => {
+  if (currentCounter <= 0) return;
+  currentCounter--;
+  counterDisplay.innerHTML = currentCounter;
+})
+
+plus.addEventListener('click', () => {
+  if (currentCounter >= 99) return;
+  currentCounter++;
+  counterDisplay.innerHTML = currentCounter;
+})
