@@ -60,12 +60,12 @@
         <div class="gallery">
           <div class="gallery__main">
             <div class="gallery-nav">
-              <img src="./images/icon-previous.svg" alt="prev-btn" />
-              <img src="./images/icon-next.svg" alt="next-btn" />
+              <img id="prevBtn"src="./images/icon-previous.svg" alt="prev-btn" />
+              <img id="nextBtn"src="./images/icon-next.svg" alt="next-btn" />
             </div>
             <div class="mainImage-container">
               <div class="mobile-blocker"></div>
-              <img id="mainImage" src="./images/image-product-1.jpg" alt="image-product-1" />
+              <img id="mainImage" src="./images/image-product-1.jpg" data-slide="1" alt="image-product-1" />
             </div>
           </div>
           <div class="gallery__thumb">
@@ -134,40 +134,4 @@
   </body>
 </html>
 
-<script>
-  const cart = document.getElementById('cart');
-  const cartTable = document.getElementById('cartTable');
-  const blocker = document.getElementById('blocker');
-
-  cart.addEventListener('click', e => {
-    cartTable.classList.add('active');
-    blocker.classList.add('active');
-  })
-
-  blocker.addEventListener('click', e => {
-    if (e.target !== e.currentTarget) return;
-    cartTable.classList.remove('active');
-    blocker.classList.remove('active');
-  })
-
-  const lightbox = document.createElement('div');
-  lightbox.id = 'lightbox';
-  document.body.appendChild(lightbox);
-
-  const image = document.getElementById('mainImage');
-
-  image.addEventListener('click', e => {
-    lightbox.classList.add('active');
-    const lightboxImg = document.createElement('img');
-    lightboxImg.src = e.path[0].src;
-    while (lightbox.firstChild) {
-      lightbox.removeChild(lightbox.firstChild);
-    }
-    lightbox.appendChild(lightboxImg);
-  })
-
-  lightbox.addEventListener('click', e => {
-    if (e.target !== e.currentTarget) return;
-    lightbox.classList.remove('active');
-  })
-</script>
+<script src="./js/script.js"></script>
