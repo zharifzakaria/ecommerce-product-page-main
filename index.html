@@ -28,11 +28,12 @@
           </ul>
         </div>
         <div class="user">
-          <div class="user__cart active">
+          <div class="user__cart">
             <span class="cart-amount">1</span>
-            <img src="./images/icon-cart.svg" alt="icon-cart" />
+            <img id="cart" src="./images/icon-cart.svg" alt="icon-cart" />
 
-            <div class="cart-table">
+            <div id="blocker"></div>
+            <div id="cartTable" class="cart-table">
               <div class="header">
                 <h3>Cart</h3>
               </div>
@@ -62,7 +63,9 @@
               <img src="./images/icon-previous.svg" alt="prev-btn" />
               <img src="./images/icon-next.svg" alt="next-btn" />
             </div>
-            <img src="./images/image-product-1.jpg" alt="image-product-1" />
+            <div id="mainImage">
+              <img src="./images/image-product-1.jpg" alt="image-product-1" />
+            </div>
           </div>
           <div class="gallery__thumb">
             <ul>
@@ -129,3 +132,41 @@
     </div>
   </body>
 </html>
+
+<script>
+  const cart = document.getElementById('cart');
+  const cartTable = document.getElementById('cartTable');
+  const blocker = document.getElementById('blocker');
+
+  cart.addEventListener('click', e => {
+    cartTable.classList.add('active');
+    blocker.classList.add('active');
+  })
+
+  blocker.addEventListener('click', e => {
+    if (e.target !== e.currentTarget) return;
+    cartTable.classList.remove('active');
+    blocker.classList.remove('active');
+  })
+
+  const lightbox = document.createElement('div');
+  lightbox.id = 'lightbox';
+  document.body.appendChild(lightbox);
+
+  const image = document.getElementById('mainImage');
+
+  image.addEventListener('click', e => {
+    lightbox.classList.add('active');
+    const lightboxImg = document.createElement('img');
+    lightboxImg.src = e.path[0].src;
+    while (lightbox.firstChild) {
+      lightbox.removeChild(lightbox.firstChild);
+    }
+    lightbox.appendChild(lightboxImg);
+  })
+
+  lightbox.addEventListener('click', e => {
+    if (e.target !== e.currentTarget) return;
+    lightbox.classList.remove('active');
+  })
+</script>
