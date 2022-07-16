@@ -245,7 +245,7 @@ nav .user__cart .cart-table .checkout-btn button {
   font-size: 0.9em;
   font-weight: 700;
   cursor: pointer;
-  transition: all .3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 nav .user__profile {
@@ -620,15 +620,105 @@ main .description .cart__btn img {
   display: none;
 }
 
+#lightbox .slidernav {
+  position: absolute;
+  transform: translateY(-100%);
+  display: flex;
+  width: 720px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#lightbox .slidernav__prev, #lightbox .slidernav__next {
+  width: 13px;
+  height: 18px;
+  border-radius: 50%;
+  padding: 15px 18px;
+  background-image: url(../images/icon-next.svg);
+  background-size: auto;
+  background-color: #b6bcc8;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #b6bcc8;
+  cursor: pointer;
+}
+
+#lightbox .slidernav__prev:hover, #lightbox .slidernav__next:hover {
+  background-image: url(../images/icon-next-hover.svg);
+}
+
+#lightbox .slidernav__prev {
+  transform: rotate(180deg);
+}
+
+#lightbox .close-btn {
+  transform: translate(292px, -20px);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  background-image: url(../images/icon-close.svg);
+  background-size: cover;
+}
+
+#lightbox .close-btn:hover {
+  background-image: url(../images/icon-close-hover.svg);
+}
+
 #lightbox.active {
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
 
 #lightbox img {
-  width: 800px;
-  height: 800px;
+  width: 600px;
+  height: 600px;
+  border-radius: 16px;
+}
+
+#lightbox .gallery__thumb {
+  max-width: 600px;
+}
+
+@media only screen and (max-width: 912px) {
+  #lightbox .gallery__thumb {
+    display: none;
+  }
+}
+
+#lightbox .gallery__thumb ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+#lightbox .gallery__thumb ul li {
+  border: 3px solid transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+#lightbox .gallery__thumb ul li:last-child {
+  margin-right: 0;
+}
+
+#lightbox .gallery__thumb ul li img {
+  width: 100%;
+  height: auto;
+}
+
+#lightbox .gallery__thumb ul .active {
+  border: 3px solid #ff7d1a;
+  cursor: initial;
+}
+
+#lightbox .gallery__thumb ul .active img {
+  filter: contrast(0.3) brightness(1.6);
 }
 
 .attribution {
