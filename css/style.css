@@ -674,7 +674,7 @@ main .description .cart__btn img {
 #lightbox img {
   width: 600px;
   height: 600px;
-  border-radius: 16px;
+  border-radius: 8px;
 }
 
 #lightbox .gallery__thumb {
@@ -709,7 +709,7 @@ main .description .cart__btn img {
 
 #lightbox .gallery__thumb ul li img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 #lightbox .gallery__thumb ul .active {

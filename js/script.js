@@ -24,28 +24,58 @@ const slidernavPrev = document.createElement("div");
 slidernavPrev.classList.add("slidernav__prev");
 slidernav.appendChild(slidernavPrev);
 
+let currentSlide = 0;
+slidernavPrev.addEventListener("click", () => {
+  currentSlide -= 1;
+  if (currentSlide <= 0) currentSlide = 4;
+  const currentLightboxImg = document
+    .getElementById("lightbox")
+    .querySelector("img");
+  currentLightboxImg.src = `./images/image-product-${currentSlide}.jpg`;
+
+  document
+    .querySelectorAll(".gallery__thumb > ul > li")
+    .forEach((el) => el.classList.remove("active"));
+});
+
 const slidernavNext = document.createElement("div");
 slidernavNext.classList.add("slidernav__next");
 slidernav.appendChild(slidernavNext);
+slidernavNext.addEventListener("click", () => {
+  currentSlide += 1;
+  if (currentSlide >= 4) currentSlide = 1;
+  const currentLightboxImg = document
+    .getElementById("lightbox")
+    .querySelector("img");
+  currentLightboxImg.src = `./images/image-product-${currentSlide}.jpg`;
+});
 
 const lightboxClose = document.createElement("div");
 lightboxClose.classList.add("close-btn");
+lightboxClose.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
 
-const galleryThumb = document.createElement('div');
-galleryThumb.classList.add('gallery__thumb');
-const galleryUL = document.createElement('ul');
-const galleryLI1 = document.createElement('li');
-const galleryLiImage1 = document.createElement('img');
-galleryLiImage1.src = './images/image-product-1-thumbnail.jpg';
-const galleryLI2 = document.createElement('li');
-const galleryLiImage2 = document.createElement('img');
-galleryLiImage2.src = './images/image-product-2-thumbnail.jpg';
-const galleryLI3 = document.createElement('li');
-const galleryLiImage3 = document.createElement('img');
-galleryLiImage3.src = './images/image-product-3-thumbnail.jpg';
-const galleryLI4 = document.createElement('li');
-const galleryLiImage4 = document.createElement('img');
-galleryLiImage4.src = './images/image-product-4-thumbnail.jpg';
+const galleryThumb = document.createElement("div");
+galleryThumb.classList.add("gallery__thumb");
+const galleryUL = document.createElement("ul");
+const galleryLI1 = document.createElement("li");
+galleryLI1.classList.add("active");
+galleryLI1.setAttribute("data-slide", 1);
+const galleryLiImage1 = document.createElement("img");
+galleryLiImage1.src = "./images/image-product-1-thumbnail.jpg";
+const galleryLI2 = document.createElement("li");
+galleryLI2.setAttribute("data-slide", 2);
+const galleryLiImage2 = document.createElement("img");
+galleryLiImage2.src = "./images/image-product-2-thumbnail.jpg";
+const galleryLI3 = document.createElement("li");
+galleryLI3.setAttribute("data-slide", 3);
+const galleryLiImage3 = document.createElement("img");
+galleryLiImage3.src = "./images/image-product-3-thumbnail.jpg";
+const galleryLI4 = document.createElement("li");
+galleryLI4.setAttribute("data-slide", 4);
+const galleryLiImage4 = document.createElement("img");
+galleryLiImage4.src = "./images/image-product-4-thumbnail.jpg";
 
 galleryLI1.appendChild(galleryLiImage1);
 galleryLI2.appendChild(galleryLiImage2);
@@ -56,7 +86,6 @@ galleryUL.appendChild(galleryLI2);
 galleryUL.appendChild(galleryLI3);
 galleryUL.appendChild(galleryLI4);
 galleryThumb.appendChild(galleryUL);
-
 
 const image = document.getElementById("mainImage");
 image.addEventListener("click", (e) => {
@@ -70,11 +99,6 @@ image.addEventListener("click", (e) => {
   lightbox.appendChild(lightboxImg);
   lightbox.appendChild(galleryThumb);
   lightbox.appendChild(slidernav);
-});
-
-lightbox.addEventListener("click", (e) => {
-  if (e.target !== e.currentTarget) return;
-  lightbox.classList.remove("active");
 });
 
 //gallery thumbnail
