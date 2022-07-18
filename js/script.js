@@ -36,6 +36,9 @@ slidernavPrev.addEventListener("click", () => {
   document
     .querySelectorAll(".gallery__thumb > ul > li")
     .forEach((el) => el.classList.remove("active"));
+  document
+    .querySelector(`.gallery__thumb > ul > li[data-slide="${currentSlide}"]`)
+    .classList.add("active");
 });
 
 const slidernavNext = document.createElement("div");
@@ -43,11 +46,17 @@ slidernavNext.classList.add("slidernav__next");
 slidernav.appendChild(slidernavNext);
 slidernavNext.addEventListener("click", () => {
   currentSlide += 1;
-  if (currentSlide >= 4) currentSlide = 1;
+  if (currentSlide > 4) currentSlide = 1;
   const currentLightboxImg = document
     .getElementById("lightbox")
     .querySelector("img");
   currentLightboxImg.src = `./images/image-product-${currentSlide}.jpg`;
+  document
+    .querySelectorAll(".gallery__thumb > ul > li")
+    .forEach((el) => el.classList.remove("active"));
+  document
+    .querySelector(`.gallery__thumb > ul > li[data-slide="${currentSlide}"]`)
+    .classList.add("active");
 });
 
 const lightboxClose = document.createElement("div");
@@ -62,18 +71,22 @@ const galleryUL = document.createElement("ul");
 const galleryLI1 = document.createElement("li");
 galleryLI1.classList.add("active");
 galleryLI1.setAttribute("data-slide", 1);
+galleryLI1.addEventListener("click", (e) => goToCurrentSlide(e));
 const galleryLiImage1 = document.createElement("img");
 galleryLiImage1.src = "./images/image-product-1-thumbnail.jpg";
 const galleryLI2 = document.createElement("li");
 galleryLI2.setAttribute("data-slide", 2);
+galleryLI2.addEventListener("click", (e) => goToCurrentSlide(e));
 const galleryLiImage2 = document.createElement("img");
 galleryLiImage2.src = "./images/image-product-2-thumbnail.jpg";
 const galleryLI3 = document.createElement("li");
 galleryLI3.setAttribute("data-slide", 3);
+galleryLI3.addEventListener("click", (e) => goToCurrentSlide(e));
 const galleryLiImage3 = document.createElement("img");
 galleryLiImage3.src = "./images/image-product-3-thumbnail.jpg";
 const galleryLI4 = document.createElement("li");
 galleryLI4.setAttribute("data-slide", 4);
+galleryLI4.addEventListener("click", (e) => goToCurrentSlide(e));
 const galleryLiImage4 = document.createElement("img");
 galleryLiImage4.src = "./images/image-product-4-thumbnail.jpg";
 
@@ -100,6 +113,20 @@ image.addEventListener("click", (e) => {
   lightbox.appendChild(galleryThumb);
   lightbox.appendChild(slidernav);
 });
+
+//go to currentSlide
+function goToCurrentSlide(e) {
+  const currentLightboxImg = document
+    .getElementById("lightbox")
+    .querySelector("img");
+  currentLightboxImg.src = `./images/image-product-${e.path[1].dataset.slide}.jpg`;
+  document
+    .querySelectorAll(".gallery__thumb > ul > li")
+    .forEach((el) => el.classList.remove("active"));
+  document
+    .querySelector(`.gallery__thumb > ul > li[data-slide="${e.path[1].dataset.slide}"]`)
+    .classList.add("active");
+}
 
 //gallery thumbnail
 const thumbs = document.querySelectorAll(".gallery__thumb > ul > li");

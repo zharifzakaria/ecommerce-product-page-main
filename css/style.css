@@ -700,6 +700,7 @@ main .description .cart__btn img {
   border-radius: 16px;
   overflow: hidden;
   margin-right: 16px;
+  background-color: #ff7d1a;
   cursor: pointer;
 }
 
@@ -708,7 +709,7 @@ main .description .cart__btn img {
 }
 
 #lightbox .gallery__thumb ul li img {
-  width: 100%;
+  width: 101%;
   height: 100%;
 }
 

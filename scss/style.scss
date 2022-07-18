@@ -677,6 +677,7 @@ main {
         border-radius: 16px;
         overflow: hidden;
         margin-right: 16px;
+        background-color: hsl(26, 100%, 55%);
         cursor: pointer;
 
         &:last-child {
@@ -684,7 +685,7 @@ main {
         }
 
         img {
-          width: 100%;
+          width: 101%;
           height: 100%;
         }
       }
